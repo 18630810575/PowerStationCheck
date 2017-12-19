@@ -1,0 +1,61 @@
+//
+//  PrefixHeader.pch
+//  BiddingMaterial
+//
+//  Created by 孙锐 on 2017/5/2.
+//  Copyright © 2017年 孙锐. All rights reserved.
+//
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+
+#ifdef __OBJC__
+
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+
+#endif
+
+#import "MJExtension.h"
+#import "AFHTTPSessionManager.h"
+#import "BaseViewController.h"
+#import <UIKit/UIKit.h>
+//颜色
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define RGB(r,g,b)  [UIColor colorWithRed:(double)r/255.0f green:(double)g/255.0f blue:(double)b/255.0f alpha:1]
+//屏幕尺寸
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+//接口地址
+//#define API_HOST @"http://123.57.11.167:8081/ZX/"
+//#define PHP_HOST @"http://123.57.11.167/ZXDEV/index.php/Home/"
+//#define HOST @"123.57.11.167"
+
+//屏幕尺寸比列
+#define ScreenScale [UIScreen mainScreen].bounds.size.width/1242
+#define font(num) [UIFont systemFontOfSize:(float)num]
+#define image(name) [UIImage imageNamed:(NSString *)name]
+
+#define UIThemeColor UIColorFromRGB(0xF29830)
+
+//接口调用和数据存储
+#define getData(responseObject) [NSJSONSerialization JSONObjectWithData:[[NSData alloc]initWithData:responseObject] options:NSJSONReadingMutableContainers error:nil]
+#define loadSuccess(dictionary) [[dictionary[@"status"] stringValue]isEqualToString:@"1"]
+#define loadFail(dictionary) [[dictionary[@"status"] stringValue]isEqualToString:@""]
+#define Fast_ENCODE(obj)  [FastCoder dataWithRootObject:obj]
+#define Fast_DECODE(data) [FastCoder objectWithData:data]
+#define setValueWithKey(data,key) [[NSUserDefaults standardUserDefaults]setObject:data forKey:key]
+#define getValueWithKey(key)    [[NSUserDefaults standardUserDefaults]objectForKey:key]
+#define removeObjectWithKey(key)    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key]
+#define clearCache [BaseViewController resetDefaults]
+
+
+#endif /* PrefixHeader_pch */
+
+
