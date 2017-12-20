@@ -56,6 +56,10 @@
 #define clearCache [BaseViewController resetDefaults]
 
 
+#define IS_OPEN_NSLOG 1;
+
+
+
 #endif /* PrefixHeader_pch */
 
 
