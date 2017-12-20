@@ -54,6 +54,12 @@
 #define getValueWithKey(key)    [[NSUserDefaults standardUserDefaults]objectForKey:key]
 #define removeObjectWithKey(key)    [[NSUserDefaults standardUserDefaults]removeObjectForKey:key]
 #define clearCache [BaseViewController resetDefaults]
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height;
+
+
+
+// 图片名称
+static NSString* kNavBackgroundImageName = @"theme_background";
 
 
 #endif /* PrefixHeader_pch */

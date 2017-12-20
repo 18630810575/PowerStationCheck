@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class TabBar;
+#import "NavBar.h"
+#import "TabBar.h"
 
 extern const int kBaseTabBarHeight;
 extern const int kBaseTabBarMaxHeight;
 
 
 @interface BaseViewController : UIViewController
+
+- (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack;
 @property (nonatomic, strong) TabBar *tabBar;
+@property (nonatomic, strong) NavBar *navBar;
+
 @end

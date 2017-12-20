@@ -26,4 +26,7 @@ extern NSString *const TabBarNotificationChangeViewController;
 
 -(void)changeViewWithViewTitle:(NSString *)title;
 
+-(void)addNeedBackButton;
+
+
 @end

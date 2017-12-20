@@ -28,7 +28,7 @@ static const int kTabButtonBaseTag = 400;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     UINavigationController *nav = [[UINavigationController alloc]init];
-    HomeViewController *homeVC = [[HomeViewController alloc]init];
+    HomeViewController *homeVC = [[HomeViewController alloc]initWithTitle:@"待办任务" AndNeedBack:NO];
     [nav addChildViewController:homeVC];
     self.window.rootViewController = nav;
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(tabButtonClickToShowControllerWithTag:) name:TabBarNotificationChangeViewController object:nil];
@@ -41,13 +41,13 @@ static const int kTabButtonBaseTag = 400;
     if (tag == kTabButtonBaseTag) {
         //待办任务
         UINavigationController *nav = [[UINavigationController alloc]init];
-        HomeViewController *homeVC = [[HomeViewController alloc]init];
+        HomeViewController *homeVC = [[HomeViewController alloc]initWithTitle:@"待办任务" AndNeedBack:NO];
         [nav addChildViewController:homeVC];
         self.window.rootViewController = nav;
     }else if (tag == kTabButtonBaseTag+1){
         //待领任务
         UINavigationController *nav = [[UINavigationController alloc]init];
-        GettingViewController *gettingVC = [[GettingViewController alloc]init];
+        GettingViewController *gettingVC = [[GettingViewController alloc]initWithTitle:@"待领任务" AndNeedBack:NO];
         [nav addChildViewController:gettingVC];
         self.window.rootViewController = nav;
     }else if (tag == kTabButtonBaseTag+2){
@@ -56,14 +56,14 @@ static const int kTabButtonBaseTag = 400;
     else if (tag == kTabButtonBaseTag+3){
         //任务列表
         UINavigationController *nav = [[UINavigationController alloc]init];
-        ListViewController *listVC = [[ListViewController alloc]init];
+        ListViewController *listVC = [[ListViewController alloc]initWithTitle:@"任务列表" AndNeedBack:NO];
         [nav addChildViewController:listVC];
         self.window.rootViewController = nav;
     }
     else if (tag == kTabButtonBaseTag+4){
         //我的
         UINavigationController *nav = [[UINavigationController alloc]init];
-        MineViewController *mineVC = [[MineViewController alloc]init];
+        MineViewController *mineVC = [[MineViewController alloc]initWithTitle:@"我的" AndNeedBack:NO];
         [nav addChildViewController:mineVC];
         self.window.rootViewController = nav;
     }
