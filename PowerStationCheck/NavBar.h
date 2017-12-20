@@ -10,4 +10,6 @@
 
 @interface NavBar : UIView
 
+-(void)setBackgroundImage;
+-(void)setNavTitle:(NSString *)title;
 @end

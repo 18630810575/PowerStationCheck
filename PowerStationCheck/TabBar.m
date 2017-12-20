@@ -86,10 +86,10 @@ static const int kMiddleImageSize = 45;
             
             //设置尺寸
             [tabContent mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.left.equalTo(i*kScreenWidth/5);
+                make.left.equalTo(i*kScreenWidth/tabArr.count);
                 make.bottom.equalTo(0);
                 make.height.equalTo(kBaseTabBarHeight);
-                make.width.equalTo(kScreenWidth/5);
+                make.width.equalTo(kScreenWidth/tabArr.count);
             }];
             [tabLabel mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(tabContent.bottom).offset(kTabLabelOffset);
@@ -119,7 +119,7 @@ static const int kMiddleImageSize = 45;
     [self addSubview:middleTabContent];
     
     [middleTabContent mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(kScreenWidth/5);
+        make.width.equalTo(kScreenWidth/tabArr.count);
         make.height.equalTo(kBaseTabBarMaxHeight);
         make.bottom.equalTo(0);
         make.centerX.equalTo(self);
@@ -187,6 +187,11 @@ static const int kMiddleImageSize = 45;
             
         }
     }
+}
+
+-(void)addNeedBackButton{
+    
+
 }
 
 @end

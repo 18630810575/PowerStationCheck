@@ -21,6 +21,7 @@
 		7D8264871FE907F500BB66AC /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264861FE907F500BB66AC /* ScanViewController.m */; };
 		7D82648A1FE907FB00BB66AC /* GettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264891FE907FB00BB66AC /* GettingViewController.m */; };
 		7D82648D1FE90D7E00BB66AC /* NavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82648C1FE90D7E00BB66AC /* NavBar.m */; };
+		7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDDBB881FEA15CF005935E1 /* Home.xcassets */; };
 		9457765542600C8A75B8FA5F /* libPods-PowerStationCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		7D8264891FE907FB00BB66AC /* GettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GettingViewController.m; sourceTree = "<group>"; };
 		7D82648B1FE90D7E00BB66AC /* NavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBar.h; sourceTree = "<group>"; };
 		7D82648C1FE90D7E00BB66AC /* NavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBar.m; sourceTree = "<group>"; };
+		7DDDBB881FEA15CF005935E1 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PowerStationCheck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45DBB7E1896670E92E300D8 /* Pods-PowerStationCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerStationCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerStationCheck/Pods-PowerStationCheck.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +221,7 @@
 		7D8264621FE8B00A00BB66AC /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7DDDBB871FEA15B8005935E1 /* Other */,
 				7D8264651FE8B01D00BB66AC /* Model */,
 				7D8264641FE8B01700BB66AC /* View */,
 				7D8264631FE8B01000BB66AC /* Controller */,
@@ -381,6 +384,14 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		7DDDBB871FEA15B8005935E1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7DDDBB881FEA15CF005935E1 /* Home.xcassets */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		88CB54209906FDB66A0C1940 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D8264341FE8A6DB00BB66AC /* LaunchScreen.storyboard in Resources */,
+				7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */,
 				7D82646E1FE8BC5700BB66AC /* Base.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
