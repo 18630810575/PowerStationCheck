@@ -52,6 +52,11 @@ static const int kTabButtonBaseTag = 400;
         self.window.rootViewController = nav;
     }else if (tag == kTabButtonBaseTag+2){
         //扫一扫
+        UINavigationController *nav = [[UINavigationController alloc]init];
+        ScanViewController *scanVC = [[ScanViewController alloc]initWithTitle:@"扫一扫" AndNeedBack:YES];
+        [self.window.rootViewController presentViewController:scanVC animated:(BOOL)YES completion:^{
+            
+        }];
     }
     else if (tag == kTabButtonBaseTag+3){
         //任务列表

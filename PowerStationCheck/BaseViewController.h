@@ -20,4 +20,5 @@ extern const int kBaseTabBarMaxHeight;
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) NavBar *navBar;
 -(void)doNavBarSettings;
+-(void)doBaseSettings;
 @end

@@ -769,7 +769,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SPA2FSXHP;
+				DEVELOPMENT_TEAM = DHQJ288X7A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PowerStationCheck/PrefixHeader.pch";
 				INFOPLIST_FILE = PowerStationCheck/Info.plist;
@@ -786,7 +786,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SPA2FSXHP;
+				DEVELOPMENT_TEAM = DHQJ288X7A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PowerStationCheck/PrefixHeader.pch";
 				INFOPLIST_FILE = PowerStationCheck/Info.plist;
@@ -831,7 +831,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SPA2FSXHP;
+				DEVELOPMENT_TEAM = 7H95G53JNB;
 				INFOPLIST_FILE = PowerStationCheckUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.PowerStationCheckUITests;
@@ -845,7 +845,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2SPA2FSXHP;
+				DEVELOPMENT_TEAM = 7H95G53JNB;
 				INFOPLIST_FILE = PowerStationCheckUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.PowerStationCheckUITests;
