@@ -62,6 +62,10 @@
 static NSString* kNavBackgroundImageName = @"theme_background";
 
 
+#define IS_OPEN_NSLOG 1;
+
+
+
 #endif /* PrefixHeader_pch */
 
 
