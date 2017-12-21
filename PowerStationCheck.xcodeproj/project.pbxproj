@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D48B3011FEAA992004C3482 /* SRObjectRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3001FEAA992004C3482 /* SRObjectRuntime.m */; };
+		7D48B3041FEAA9F6004C3482 /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3031FEAA9F6004C3482 /* ProjectModel.m */; };
+		7D48B3071FEAAA5F004C3482 /* DataPile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3061FEAAA5F004C3482 /* DataPile.m */; };
 		7D8264291FE8A6DB00BB66AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264281FE8A6DB00BB66AC /* AppDelegate.m */; };
 		7D8264341FE8A6DB00BB66AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8264321FE8A6DB00BB66AC /* LaunchScreen.storyboard */; };
 		7D8264371FE8A6DB00BB66AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264361FE8A6DB00BB66AC /* main.m */; };
@@ -44,6 +47,12 @@
 
 /* Begin PBXFileReference section */
 		2703D296BD9FC82B11FBFBB9 /* Pods-PowerStationCheck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerStationCheck.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PowerStationCheck/Pods-PowerStationCheck.debug.xcconfig"; sourceTree = "<group>"; };
+		7D48B2FF1FEAA992004C3482 /* SRObjectRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRObjectRuntime.h; sourceTree = "<group>"; };
+		7D48B3001FEAA992004C3482 /* SRObjectRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRObjectRuntime.m; sourceTree = "<group>"; };
+		7D48B3021FEAA9F6004C3482 /* ProjectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		7D48B3031FEAA9F6004C3482 /* ProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
+		7D48B3051FEAAA5F004C3482 /* DataPile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPile.h; sourceTree = "<group>"; };
+		7D48B3061FEAAA5F004C3482 /* DataPile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataPile.m; sourceTree = "<group>"; };
 		7D8264241FE8A6DB00BB66AC /* PowerStationCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerStationCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8264271FE8A6DB00BB66AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D8264281FE8A6DB00BB66AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -193,6 +202,8 @@
 		7D82645F1FE8AFEB00BB66AC /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				7D48B2FF1FEAA992004C3482 /* SRObjectRuntime.h */,
+				7D48B3001FEAA992004C3482 /* SRObjectRuntime.m */,
 				7D8264271FE8A6DB00BB66AC /* AppDelegate.h */,
 				7D8264281FE8A6DB00BB66AC /* AppDelegate.m */,
 				7D82646D1FE8BC5700BB66AC /* Base.xcassets */,
@@ -248,6 +259,8 @@
 		7D8264651FE8B01D00BB66AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7D48B3021FEAA9F6004C3482 /* ProjectModel.h */,
+				7D48B3031FEAA9F6004C3482 /* ProjectModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +401,8 @@
 			isa = PBXGroup;
 			children = (
 				7DDDBB881FEA15CF005935E1 /* Home.xcassets */,
+				7D48B3051FEAAA5F004C3482 /* DataPile.h */,
+				7D48B3061FEAAA5F004C3482 /* DataPile.m */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -600,12 +615,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D82648A1FE907FB00BB66AC /* GettingViewController.m in Sources */,
+				7D48B3041FEAA9F6004C3482 /* ProjectModel.m in Sources */,
 				7D82646B1FE8B34E00BB66AC /* TabBar.m in Sources */,
 				7D82645B1FE8AF9B00BB66AC /* BaseViewController.m in Sources */,
 				7D8264841FE907EE00BB66AC /* ListViewController.m in Sources */,
+				7D48B3071FEAAA5F004C3482 /* DataPile.m in Sources */,
 				7D8264871FE907F500BB66AC /* ScanViewController.m in Sources */,
 				7D82648D1FE90D7E00BB66AC /* NavBar.m in Sources */,
 				7D8264371FE8A6DB00BB66AC /* main.m in Sources */,
+				7D48B3011FEAA992004C3482 /* SRObjectRuntime.m in Sources */,
 				7D8264811FE907D900BB66AC /* MineViewController.m in Sources */,
 				7D8264291FE8A6DB00BB66AC /* AppDelegate.m in Sources */,
 				7D8264681FE8B02A00BB66AC /* HomeViewController.m in Sources */,

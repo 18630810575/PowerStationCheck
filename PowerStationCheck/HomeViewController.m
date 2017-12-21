@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-
+#import "DataPile.h"
 //static const int kleftSmallImageIconTag =500;
 static const float kUnselectedButtonAlpha = 0.6;
 static const float kAnimatedDuration = 0.3;
@@ -28,7 +28,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
 @implementation HomeViewController{
     NSArray *selectTitleArr;
     NSArray *selectImageArr;
-    
+    NSArray *returnDataArr;
 }
 
 - (void)viewDidLoad {
@@ -36,6 +36,8 @@ static NSString *kSelectedRoundImageName = @"select-image";
     // Do any additional setup after loading the view.
     selectTitleArr = @[@"全部",@"超期",@"紧急",@"普通"];
     selectImageArr = @[@"all",@"overtime",@"urgency",@"normal"];
+    returnDataArr = [DataPile getDataPile];
+    
     [self.view addSubview:self.topSelectContent];
     [self.view addSubview:self.projectScrollView];
 
