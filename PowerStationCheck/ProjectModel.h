@@ -9,5 +9,12 @@
 #import "SRObjectRuntime.h"
 
 @interface ProjectModel : SRObjectRuntime
-//@property (nonatomic, strong) NSString *
+@property (nonatomic, strong) NSString *proj_id;
+@property (nonatomic, strong) NSString *proj_name;
+@property (nonatomic, strong) NSString *proj_type;
+@property (nonatomic, assign) BOOL is_open;
+@property (nonatomic, strong) NSArray *proj_work_order;
+
+-(void)setModelWithDataPile:(NSDictionary *)dict;
+
 @end

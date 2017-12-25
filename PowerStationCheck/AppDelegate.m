@@ -54,7 +54,8 @@ static const int kTabButtonBaseTag = 400;
         //扫一扫
         UINavigationController *nav = [[UINavigationController alloc]init];
         ScanViewController *scanVC = [[ScanViewController alloc]initWithTitle:@"扫一扫" AndNeedBack:YES];
-        [self.window.rootViewController presentViewController:scanVC animated:(BOOL)YES completion:^{
+        [nav addChildViewController:scanVC];
+        [self.window.rootViewController presentViewController:nav animated:YES completion:^{
             
         }];
     }

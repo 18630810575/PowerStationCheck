@@ -24,6 +24,11 @@
 		7D8264871FE907F500BB66AC /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264861FE907F500BB66AC /* ScanViewController.m */; };
 		7D82648A1FE907FB00BB66AC /* GettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264891FE907FB00BB66AC /* GettingViewController.m */; };
 		7D82648D1FE90D7E00BB66AC /* NavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82648C1FE90D7E00BB66AC /* NavBar.m */; };
+		7DD51B9E1FEC9F3B00EB7AF9 /* Scan.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DD51B9D1FEC9F3B00EB7AF9 /* Scan.xcassets */; };
+		7DD51BA11FECC41B00EB7AF9 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD51BA01FECC41B00EB7AF9 /* OrderModel.m */; };
+		7DD51BA41FECC49800EB7AF9 /* MissionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD51BA31FECC49800EB7AF9 /* MissionModel.m */; };
+		7DD51BA71FECC73700EB7AF9 /* ProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD51BA61FECC73700EB7AF9 /* ProjectCell.m */; };
+		7DD51BAA1FECFF0E00EB7AF9 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD51BA91FECFF0E00EB7AF9 /* HeaderView.m */; };
 		7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDDBB881FEA15CF005935E1 /* Home.xcassets */; };
 		9457765542600C8A75B8FA5F /* libPods-PowerStationCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */; };
 /* End PBXBuildFile section */
@@ -83,6 +88,15 @@
 		7D8264891FE907FB00BB66AC /* GettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GettingViewController.m; sourceTree = "<group>"; };
 		7D82648B1FE90D7E00BB66AC /* NavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavBar.h; sourceTree = "<group>"; };
 		7D82648C1FE90D7E00BB66AC /* NavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBar.m; sourceTree = "<group>"; };
+		7DD51B9D1FEC9F3B00EB7AF9 /* Scan.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Scan.xcassets; sourceTree = "<group>"; };
+		7DD51B9F1FECC41B00EB7AF9 /* OrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		7DD51BA01FECC41B00EB7AF9 /* OrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
+		7DD51BA21FECC49800EB7AF9 /* MissionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MissionModel.h; sourceTree = "<group>"; };
+		7DD51BA31FECC49800EB7AF9 /* MissionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MissionModel.m; sourceTree = "<group>"; };
+		7DD51BA51FECC73700EB7AF9 /* ProjectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectCell.h; sourceTree = "<group>"; };
+		7DD51BA61FECC73700EB7AF9 /* ProjectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectCell.m; sourceTree = "<group>"; };
+		7DD51BA81FECFF0E00EB7AF9 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		7DD51BA91FECFF0E00EB7AF9 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		7DDDBB881FEA15CF005935E1 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PowerStationCheck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F45DBB7E1896670E92E300D8 /* Pods-PowerStationCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerStationCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerStationCheck/Pods-PowerStationCheck.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +266,10 @@
 		7D8264641FE8B01700BB66AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7DD51BA51FECC73700EB7AF9 /* ProjectCell.h */,
+				7DD51BA61FECC73700EB7AF9 /* ProjectCell.m */,
+				7DD51BA81FECFF0E00EB7AF9 /* HeaderView.h */,
+				7DD51BA91FECFF0E00EB7AF9 /* HeaderView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -261,6 +279,10 @@
 			children = (
 				7D48B3021FEAA9F6004C3482 /* ProjectModel.h */,
 				7D48B3031FEAA9F6004C3482 /* ProjectModel.m */,
+				7DD51B9F1FECC41B00EB7AF9 /* OrderModel.h */,
+				7DD51BA01FECC41B00EB7AF9 /* OrderModel.m */,
+				7DD51BA21FECC49800EB7AF9 /* MissionModel.h */,
+				7DD51BA31FECC49800EB7AF9 /* MissionModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -278,6 +300,7 @@
 		7D8264701FE9076600BB66AC /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				7DD51B9C1FEC9F3200EB7AF9 /* Other */,
 				7D8264771FE907A500BB66AC /* Model */,
 				7D8264781FE907A900BB66AC /* View */,
 				7D8264761FE907A100BB66AC /* Controller */,
@@ -395,6 +418,14 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		7DD51B9C1FEC9F3200EB7AF9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7DD51B9D1FEC9F3B00EB7AF9 /* Scan.xcassets */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		7DDDBB871FEA15B8005935E1 /* Other */ = {
@@ -535,6 +566,7 @@
 			files = (
 				7D8264341FE8A6DB00BB66AC /* LaunchScreen.storyboard in Resources */,
 				7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */,
+				7DD51B9E1FEC9F3B00EB7AF9 /* Scan.xcassets in Resources */,
 				7D82646E1FE8BC5700BB66AC /* Base.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,12 +653,16 @@
 				7D8264841FE907EE00BB66AC /* ListViewController.m in Sources */,
 				7D48B3071FEAAA5F004C3482 /* DataPile.m in Sources */,
 				7D8264871FE907F500BB66AC /* ScanViewController.m in Sources */,
+				7DD51BA41FECC49800EB7AF9 /* MissionModel.m in Sources */,
+				7DD51BAA1FECFF0E00EB7AF9 /* HeaderView.m in Sources */,
 				7D82648D1FE90D7E00BB66AC /* NavBar.m in Sources */,
 				7D8264371FE8A6DB00BB66AC /* main.m in Sources */,
 				7D48B3011FEAA992004C3482 /* SRObjectRuntime.m in Sources */,
+				7DD51BA11FECC41B00EB7AF9 /* OrderModel.m in Sources */,
 				7D8264811FE907D900BB66AC /* MineViewController.m in Sources */,
 				7D8264291FE8A6DB00BB66AC /* AppDelegate.m in Sources */,
 				7D8264681FE8B02A00BB66AC /* HomeViewController.m in Sources */,
+				7DD51BA71FECC73700EB7AF9 /* ProjectCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,14 +823,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHQJ288X7A;
+				DEVELOPMENT_TEAM = 2SPA2FSXHP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PowerStationCheck/PrefixHeader.pch";
 				INFOPLIST_FILE = PowerStationCheck/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.PowerStationCheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -804,14 +841,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DHQJ288X7A;
+				DEVELOPMENT_TEAM = 2SPA2FSXHP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PowerStationCheck/PrefixHeader.pch";
 				INFOPLIST_FILE = PowerStationCheck/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SR.PowerStationCheck;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
