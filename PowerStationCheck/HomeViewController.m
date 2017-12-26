@@ -65,7 +65,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
 
     [self doTopSelectViewSettings];
     [self setSelectedImagePosition];
-
+    self.view.backgroundColor = kFooterColor;
     [self doProjectScrollViewSettings];
     [self.view bringSubviewToFront:self.tabBar];
     
@@ -252,7 +252,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
         _projectTableView.contentSize = CGSizeMake(0, kScreenHeight);
         _projectTableView.layer.cornerRadius = 10*ScreenScale;
         _projectTableView.layer.masksToBounds = YES;
-        _projectTableView.bounces = YES;
+        _projectTableView.bounces = NO;
         _projectTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _projectTableView.delegate = self;
         _projectTableView.dataSource = self;
@@ -301,7 +301,8 @@ static NSString *kSelectedRoundImageName = @"select-image";
 //    ProjectModel *model = returnDataArr[section];
     NSArray *sourceArr = tableDataSource[section];
     if (indexPath.row == sourceArr.count-1 && [sourceArr[indexPath.row][@"level"]isEqualToString:@"1"]) {
-        return 205*ScreenScale;
+        
+        return 165*ScreenScale;
     }else if (indexPath.row == sourceArr.count-1 && [sourceArr[indexPath.row][@"level"]isEqualToString:@"0"]){
         return 170*ScreenScale;
     }else{
@@ -311,7 +312,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
             if (([sourceArr[indexPath.row][@"level"]isEqualToString:@"0"]&&[sourceArr[indexPath.row+1][@"level"]isEqualToString:@"0"])){
                 return 170*ScreenScale;
             }else if(([sourceArr[indexPath.row][@"level"]isEqualToString:@"1"]&&[sourceArr[indexPath.row+1][@"level"]isEqualToString:@"0"])){
-                return 205*ScreenScale;
+                return 165*ScreenScale;
             }{
                 return 165*ScreenScale;
             }
@@ -349,33 +350,6 @@ static NSString *kSelectedRoundImageName = @"select-image";
     return headerView;
 }
 
-
-- (void)openSection:(NSInteger)section{
-   ProjectModel *model =returnDataArr[section];
-    model.is_open = !model.is_open;
-    NSMutableArray *indexArray = [NSMutableArray array];
-    NSArray *sourceArr = tableDataSource[section];
-    for (int i = 0; i < sourceArr.count; i++) {
-        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:section];
-        [indexArray addObject:indexpath];
-    }
-    [self.projectTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
-//    returnDataArr[section] = model;
-}
-
-- (void)closeSection:(NSInteger)section{
-   ProjectModel *model =returnDataArr[section];
-    model.is_open = !model.is_open;
-    NSMutableArray *indexArray = [NSMutableArray array];
-    NSArray *sourceArr = tableDataSource[section];
-    for (int i = 0; i < sourceArr.count; i++) {
-        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:section];
-        [indexArray addObject:indexpath];
-    }
-    [self.projectTableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
-//    returnDataArr[section] = model;
-}
-
 -(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
 
         UIView *footerView = [[UIView alloc]init];
@@ -384,35 +358,13 @@ static NSString *kSelectedRoundImageName = @"select-image";
         return footerView;
 }
 
-
-
--(NSMutableArray *)tableviewSetData{
-    NSMutableArray *dataArr = [NSMutableArray array];
-    for (int i=0; i<returnDataArr.count; i++) {
-        ProjectModel *model = returnDataArr[i];
-        NSArray *array = model.proj_work_order;
-        NSMutableArray *data = [NSMutableArray array];
-        for (int j=0; j<array.count; j++) {
-            OrderModel *orderModel = array[j];
-            NSArray *missionArr = orderModel.mission;
-            [data addObject:@{@"model":orderModel,@"level":@"0"}];
-            for (int k=0; k<missionArr.count; k++) {
-                MissionModel *missionModel = missionArr[k];
-                [data addObject:@{@"model":missionModel,@"level":@"1"}];
-            }
-        }
-        [dataArr addObject:data];
-    }
-    return dataArr;
-}
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     int section = (int)indexPath.section;
     int row = (int)indexPath.row;
     NSMutableArray *data = [NSMutableArray arrayWithArray:tableDataSource[section]];
     NSDictionary *dictionary = data[row];
-
+    
     if ([dictionary[@"level"]isEqualToString:@"0"]) {
         NSLog(@"收起/打开");
         OrderModel *model =(OrderModel *)dictionary[@"model"];
@@ -423,8 +375,38 @@ static NSString *kSelectedRoundImageName = @"select-image";
             [self openMissionWithIndexPath:indexPath];
         }
         model.is_open = !model.is_open;
+    }else{
+        //turn to details;;
     }
 }
+
+
+- (void)openSection:(NSInteger)section{
+    ProjectModel *model =returnDataArr[section];
+    model.is_open = !model.is_open;
+    NSMutableArray *indexArray = [NSMutableArray array];
+    NSArray *sourceArr = tableDataSource[section];
+    for (int i = 0; i < sourceArr.count; i++) {
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:section];
+        [indexArray addObject:indexpath];
+    }
+    [self.projectTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationLeft];
+    //    returnDataArr[section] = model;
+}
+
+- (void)closeSection:(NSInteger)section{
+    ProjectModel *model =returnDataArr[section];
+    model.is_open = !model.is_open;
+    NSMutableArray *indexArray = [NSMutableArray array];
+    NSArray *sourceArr = tableDataSource[section];
+    for (int i = 0; i < sourceArr.count; i++) {
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:i inSection:section];
+        [indexArray addObject:indexpath];
+    }
+    [self.projectTableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationLeft];
+    //    returnDataArr[section] = model;
+}
+
 -(void)openMissionWithIndexPath:(NSIndexPath *)indexPath{
     int section = (int)indexPath.section;
     int row = (int)indexPath.row;
@@ -449,8 +431,13 @@ static NSString *kSelectedRoundImageName = @"select-image";
         }
     }
     tableDataSource[section] = nowData;
-    [self.projectTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
-
+    [self.projectTableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationLeft];
+    ProjectCell *cell =  [self.projectTableView cellForRowAtIndexPath:indexPath];
+    UIImageView *isOpenImageView = cell.isOpenImageView;
+    [UIView animateWithDuration:0.3 animations:^{
+        isOpenImageView.transform = CGAffineTransformRotate(isOpenImageView.transform, -M_PI);
+    }completion:^(BOOL finished) {
+    }];
 }
 
 -(void)closeMissionWithIndexPath:(NSIndexPath *)indexPath{
@@ -474,13 +461,39 @@ static NSString *kSelectedRoundImageName = @"select-image";
     }
     [data removeObjectsAtIndexes:indexSet];
     tableDataSource[section] = data;
+    ProjectCell *cell =  [self.projectTableView cellForRowAtIndexPath:indexPath];
+    UIImageView *isOpenImageView = cell.isOpenImageView;
+    [UIView animateWithDuration:0.3 animations:^{
+        isOpenImageView.transform = CGAffineTransformRotate(isOpenImageView.transform, -M_PI);
+    }completion:^(BOOL finished) {
+    }];
     //        [self.projectTableView reloadData];
-    [self.projectTableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationFade];
+    [self.projectTableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationLeft];
 }
 
 -(void)delayMethod{
     [self.projectTableView reloadData];
 }
 
+-(NSMutableArray *)tableviewSetData{
+    NSMutableArray *dataArr = [NSMutableArray array];
+    for (int i=0; i<returnDataArr.count; i++) {
+        ProjectModel *model = returnDataArr[i];
+        NSArray *array = model.proj_work_order;
+        NSMutableArray *data = [NSMutableArray array];
+        for (int j=0; j<array.count; j++) {
+            OrderModel *orderModel = array[j];
+            NSArray *missionArr = orderModel.mission;
+            [data addObject:@{@"model":orderModel,@"level":@"0"}];
+            for (int k=0; k<missionArr.count; k++) {
+                MissionModel *missionModel = missionArr[k];
+                [data addObject:@{@"model":missionModel,@"level":@"1"}];
+            }
+        }
+        [dataArr addObject:data];
+    }
+    
+    return dataArr;
+}
 
 @end

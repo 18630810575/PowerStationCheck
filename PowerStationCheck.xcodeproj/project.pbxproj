@@ -10,6 +10,8 @@
 		7D48B3011FEAA992004C3482 /* SRObjectRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3001FEAA992004C3482 /* SRObjectRuntime.m */; };
 		7D48B3041FEAA9F6004C3482 /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3031FEAA9F6004C3482 /* ProjectModel.m */; };
 		7D48B3071FEAAA5F004C3482 /* DataPile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D48B3061FEAAA5F004C3482 /* DataPile.m */; };
+		7D54107A1FF0ECA7002AF042 /* Getting.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D5410791FF0ECA6002AF042 /* Getting.xcassets */; };
+		7D54107D1FF0F18F002AF042 /* GettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D54107C1FF0F18F002AF042 /* GettingCell.m */; };
 		7D8264291FE8A6DB00BB66AC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264281FE8A6DB00BB66AC /* AppDelegate.m */; };
 		7D8264341FE8A6DB00BB66AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D8264321FE8A6DB00BB66AC /* LaunchScreen.storyboard */; };
 		7D8264371FE8A6DB00BB66AC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8264361FE8A6DB00BB66AC /* main.m */; };
@@ -58,6 +60,9 @@
 		7D48B3031FEAA9F6004C3482 /* ProjectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
 		7D48B3051FEAAA5F004C3482 /* DataPile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPile.h; sourceTree = "<group>"; };
 		7D48B3061FEAAA5F004C3482 /* DataPile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataPile.m; sourceTree = "<group>"; };
+		7D5410791FF0ECA6002AF042 /* Getting.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Getting.xcassets; sourceTree = "<group>"; };
+		7D54107B1FF0F18F002AF042 /* GettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GettingCell.h; sourceTree = "<group>"; };
+		7D54107C1FF0F18F002AF042 /* GettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GettingCell.m; sourceTree = "<group>"; };
 		7D8264241FE8A6DB00BB66AC /* PowerStationCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerStationCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D8264271FE8A6DB00BB66AC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7D8264281FE8A6DB00BB66AC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D5410781FF0EC93002AF042 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7D5410791FF0ECA6002AF042 /* Getting.xcassets */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		7D82641B1FE8A6DB00BB66AC = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +303,7 @@
 		7D82646F1FE9070500BB66AC /* Getting */ = {
 			isa = PBXGroup;
 			children = (
+				7D5410781FF0EC93002AF042 /* Other */,
 				7D8264751FE9079D00BB66AC /* Model */,
 				7D8264741FE9079900BB66AC /* View */,
 				7D8264731FE9079300BB66AC /* Controller */,
@@ -340,6 +354,8 @@
 		7D8264741FE9079900BB66AC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7D54107B1FF0F18F002AF042 /* GettingCell.h */,
+				7D54107C1FF0F18F002AF042 /* GettingCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -564,6 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D54107A1FF0ECA7002AF042 /* Getting.xcassets in Resources */,
 				7D8264341FE8A6DB00BB66AC /* LaunchScreen.storyboard in Resources */,
 				7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */,
 				7DD51B9E1FEC9F3B00EB7AF9 /* Scan.xcassets in Resources */,
@@ -648,6 +665,7 @@
 			files = (
 				7D82648A1FE907FB00BB66AC /* GettingViewController.m in Sources */,
 				7D48B3041FEAA9F6004C3482 /* ProjectModel.m in Sources */,
+				7D54107D1FF0F18F002AF042 /* GettingCell.m in Sources */,
 				7D82646B1FE8B34E00BB66AC /* TabBar.m in Sources */,
 				7D82645B1FE8AF9B00BB66AC /* BaseViewController.m in Sources */,
 				7D8264841FE907EE00BB66AC /* ListViewController.m in Sources */,

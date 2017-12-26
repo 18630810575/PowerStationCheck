@@ -1,12 +1,12 @@
 //
-//  ProjectCell.m
+//  GettingCell.m
 //  PowerStationCheck
 //
-//  Created by 孙锐 on 2017/12/22.
+//  Created by 孙锐 on 2017/12/25.
 //  Copyright © 2017年 孙锐. All rights reserved.
 //
 
-#import "ProjectCell.h"
+#import "GettingCell.h"
 #import "OrderModel.h"
 #import "MissionModel.h"
 
@@ -17,13 +17,15 @@
 static const int kContentTag = 500;
 static const int kLineTag = 600;
 
-@interface ProjectCell ()
+@interface GettingCell()
 
 @property (nonatomic , strong) OrderModel *model;
 @property (nonatomic , strong) MissionModel *mission;
+
 @end
 
-@implementation ProjectCell{
+
+@implementation GettingCell{
     UIView *contentView;
 }
 
@@ -34,7 +36,7 @@ static const int kLineTag = 600;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
@@ -42,6 +44,7 @@ static const int kLineTag = 600;
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedState = NO;
         if ([level isEqualToString:@"0"]) {
             self.model = (OrderModel *)model;
             [self creatLevel0View];
@@ -65,11 +68,11 @@ static const int kLineTag = 600;
     
     UIView *content = [self viewWithTag:kContentTag];
     
-//    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:content.bounds byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10*ScreenScale, 10*ScreenScale)];
-//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-//    maskLayer.frame = content.bounds;
-//    maskLayer.path = maskPath.CGPath;
-//    content.layer.mask = maskLayer;
+    //    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:content.bounds byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(10*ScreenScale, 10*ScreenScale)];
+    //    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    //    maskLayer.frame = content.bounds;
+    //    maskLayer.path = maskPath.CGPath;
+    //    content.layer.mask = maskLayer;
     content.layer.cornerRadius = 10*ScreenScale;
     UIView *line = [content viewWithTag:kLineTag];
     [line removeFromSuperview];
@@ -99,7 +102,7 @@ static const int kLineTag = 600;
     [content addSubview:titleLabel];
     if ([self.mission.is_update isEqualToString:@"1"]) {
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(55*ScreenScale);
+            make.left.equalTo(100*ScreenScale);
             make.top.equalTo(30*ScreenScale);
             make.width.equalTo(1050*ScreenScale);
             make.height.equalTo(48*ScreenScale);
@@ -123,7 +126,7 @@ static const int kLineTag = 600;
         }
     }else{
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(55*ScreenScale);
+            make.left.equalTo(100*ScreenScale);
             make.centerY.equalTo(content);
             make.width.equalTo(1050*ScreenScale);
             make.height.equalTo(48*ScreenScale);
@@ -161,7 +164,7 @@ static const int kLineTag = 600;
     maskLayer.frame = titleView.bounds;
     maskLayer.path = maskPath.CGPath;
     titleView.layer.mask = maskLayer;
-
+    
     NSString * kTopImageName = @"";
     if ([self.model.is_urgency isEqualToString:@"0"]) {
         kTopImageName = @"theme_background";
@@ -174,19 +177,19 @@ static const int kLineTag = 600;
         make.left.and.top.and.width.and.height.equalTo(titleView);
     }];
     
-    NSString *kLeftTypeImage = @"";
-    if ([self.model.order_type isEqualToString:@"1"]) {
-        kLeftTypeImage = @"normal";
-    }else{
-        kLeftTypeImage = @"urgency";
-    }
-    UIImageView *leftImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:kLeftTypeImage]];
-    [titleView addSubview:leftImageView];
-    [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(titleView);
-        make.left.equalTo(35*ScreenScale);
-        make.width.and.height.equalTo(51*ScreenScale);
-    }];
+//    NSString *kLeftTypeImage = @"";
+//    if ([self.model.order_type isEqualToString:@"1"]) {
+//        kLeftTypeImage = @"normal";
+//    }else{
+//        kLeftTypeImage = @"urgency";
+//    }
+//    UIImageView *leftImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:kLeftTypeImage]];
+//    [titleView addSubview:leftImageView];
+//    [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerY.equalTo(titleView);
+//        make.left.equalTo(35*ScreenScale);
+//        make.width.and.height.equalTo(51*ScreenScale);
+//    }];
     
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.text = self.model.order_name;
@@ -194,7 +197,7 @@ static const int kLineTag = 600;
     titleLabel.textColor = [UIColor whiteColor];
     [titleView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(leftImageView.right).offset(20*ScreenScale);
+        make.left.equalTo(100*ScreenScale);
         make.top.equalTo(18*ScreenScale);
         make.width.equalTo(900*ScreenScale);
         make.height.equalTo(47*ScreenScale);
@@ -231,10 +234,6 @@ static const int kLineTag = 600;
 }
 
 -(void)addFooter{
-
+    
 }
-
-
-
-
 @end
