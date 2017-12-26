@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "line.png",
+      "filename" : "sun_ene.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "line@2x.png",
       "scale" : "2x"
     },
     {

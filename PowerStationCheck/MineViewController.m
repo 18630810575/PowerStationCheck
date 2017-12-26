@@ -46,11 +46,6 @@
         make.width.equalTo(kScreenWidth);
         make.height.equalTo(576 * ScreenScale);
     }];
-    [self.headerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.and.left.equalTo(0);
-        make.width.equalTo(kScreenWidth);
-        make.height.equalTo(576 * ScreenScale);
-    }];
     [self.headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.and.left.equalTo(0);
         make.width.equalTo(kScreenWidth);
@@ -130,7 +125,7 @@
             make.height.equalTo(50 * ScreenScale);
         }];
         [switchBtn addTarget:self action:@selector(switchBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    }else if(indexPath.row == 6){
+    }else if(indexPath.row == 5){
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1fM",21.5];
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
     }else{
@@ -143,7 +138,9 @@
     return  58;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 #pragma mark - getters -
