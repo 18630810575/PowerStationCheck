@@ -14,13 +14,14 @@
 #define kShadowColor UIColorFromRGB(0x58B4FF)
 #define kNeedHandleColor UIColorFromRGB(0xFF423A)
 
+static const int kOrderSelectedTag = 999;
+static const int kMissionSelectedTag = 1000;
 static const int kContentTag = 500;
 static const int kLineTag = 600;
 
 @interface GettingCell()
 
-@property (nonatomic , strong) OrderModel *model;
-@property (nonatomic , strong) MissionModel *mission;
+
 
 @end
 
@@ -48,10 +49,16 @@ static const int kLineTag = 600;
         if ([level isEqualToString:@"0"]) {
             self.model = (OrderModel *)model;
             [self creatLevel0View];
+            if (self.model.is_chosen) {
+                _chosenButton.selected = YES;
+            }
             
         }else if([level isEqualToString:@"1"]){
             self.mission = (MissionModel *)model;
             [self creatMissionView];
+            if (self.mission.is_chosen) {
+                _chosenButton.selected = YES;
+            }
         }
         [self doBaseSettings];
         
@@ -81,12 +88,46 @@ static const int kLineTag = 600;
 -(void)doBaseSettings{
     self.backgroundColor = [UIColor whiteColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
 }
 
 -(void)creatMissionView{
     UIView *content = [[UIView alloc]init];
     content.layer.masksToBounds = YES;
     content.tag = kContentTag;
+    
+    NSString *kChosenUnselectedName = @"";
+    NSString *kChosenImageName = @"";
+    if ([self.mission.is_urgency isEqualToString:@"0"]) {
+        kChosenUnselectedName = @"unselected_blue";
+        kChosenImageName = @"select_blue";
+    }else{
+        kChosenUnselectedName = @"unselected_red";
+        kChosenImageName = @"select_red";
+    }
+    
+    _chosenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_chosenButton setBackgroundImage:[UIImage imageNamed:kChosenUnselectedName] forState:UIControlStateNormal];
+    _chosenButton.tag = kMissionSelectedTag;
+    [_chosenButton setBackgroundImage:[UIImage imageNamed:kChosenImageName] forState:UIControlStateSelected];
+    [_chosenButton addTarget:self action:@selector(chosenThisOrder:) forControlEvents:UIControlEventTouchUpInside];
+    [content addSubview:_chosenButton];
+    [_chosenButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(30*ScreenScale);
+        make.centerY.equalTo(content);
+        make.width.and.height.equalTo(50*ScreenScale);
+    }];
+    
+    UIButton *hubBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    hubBtn.backgroundColor = [UIColor clearColor];
+    [hubBtn addTarget:self action:@selector(chosenThisOrder:) forControlEvents:UIControlEventTouchUpInside];
+    [content addSubview:hubBtn];
+    [hubBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.centerY.equalTo(content);
+        make.width.and.height.equalTo(content.height);
+    }];
+    
     
     UIView *shadowView= [[UIView alloc]init];
     [self addSubview:shadowView];
@@ -166,8 +207,11 @@ static const int kLineTag = 600;
     titleView.layer.mask = maskLayer;
     
     NSString * kTopImageName = @"";
+    NSString * kChosenImageName = @"select_white";
+    NSString * kChosenUnselectedName = @"unselected_white";
     if ([self.model.is_urgency isEqualToString:@"0"]) {
         kTopImageName = @"theme_background";
+        
     }else{
         kTopImageName = @"red_background";
     }
@@ -176,20 +220,29 @@ static const int kLineTag = 600;
     [headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.top.and.width.and.height.equalTo(titleView);
     }];
+
+    _chosenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_chosenButton setBackgroundImage:[UIImage imageNamed:kChosenUnselectedName] forState:UIControlStateNormal];
+    _chosenButton.tag = kOrderSelectedTag;
+    [_chosenButton setBackgroundImage:[UIImage imageNamed:kChosenImageName] forState:UIControlStateSelected];
+    [_chosenButton addTarget:self action:@selector(chosenThisOrder:) forControlEvents:UIControlEventTouchUpInside];
+    [titleView addSubview:_chosenButton];
+    [_chosenButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(30*ScreenScale);
+        make.centerY.equalTo(titleView);
+        make.width.and.height.equalTo(50*ScreenScale);
+    }];
     
-//    NSString *kLeftTypeImage = @"";
-//    if ([self.model.order_type isEqualToString:@"1"]) {
-//        kLeftTypeImage = @"normal";
-//    }else{
-//        kLeftTypeImage = @"urgency";
-//    }
-//    UIImageView *leftImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:kLeftTypeImage]];
-//    [titleView addSubview:leftImageView];
-//    [leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerY.equalTo(titleView);
-//        make.left.equalTo(35*ScreenScale);
-//        make.width.and.height.equalTo(51*ScreenScale);
-//    }];
+    UIButton *hubBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    hubBtn.backgroundColor = [UIColor clearColor];
+    [hubBtn addTarget:self action:@selector(chosenThisOrder:) forControlEvents:UIControlEventTouchUpInside];
+    [titleView addSubview:hubBtn];
+    [hubBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.centerY.equalTo(titleView);
+        make.width.and.height.equalTo(titleView.height);
+    }];
+    
     
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.text = self.model.order_name;
@@ -236,4 +289,17 @@ static const int kLineTag = 600;
 -(void)addFooter{
     
 }
+
+-(void)chosenThisOrder:(UIButton *)sender{
+    _chosenButton.selected = !_chosenButton.selected;
+    if (_chosenButton.tag == kOrderSelectedTag) {
+        self.model.is_chosen = !self.model.is_chosen;
+        self.orderBlock(self.model);
+    }else{
+        self.mission.is_chosen = !self.mission.is_chosen;
+        self.missionBlock(self.mission);
+
+    }
+}
+
 @end

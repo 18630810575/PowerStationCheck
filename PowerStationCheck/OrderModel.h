@@ -9,6 +9,7 @@
 #import "SRObjectRuntime.h"
 
 @interface OrderModel : SRObjectRuntime
+@property (nonatomic, assign) BOOL is_chosen;
 @property (nonatomic, strong) NSString *order_id;
 @property (nonatomic, strong) NSString *order_name;
 @property (nonatomic, strong) NSString *order_type;

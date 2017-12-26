@@ -176,9 +176,9 @@ static const int kLineTag = 600;
     
     NSString *kLeftTypeImage = @"";
     if ([self.model.order_type isEqualToString:@"1"]) {
-        kLeftTypeImage = @"normal";
+        kLeftTypeImage = @"checking";
     }else{
-        kLeftTypeImage = @"urgency";
+        kLeftTypeImage = @"warning";
     }
     UIImageView *leftImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:kLeftTypeImage]];
     [titleView addSubview:leftImageView];

@@ -35,7 +35,12 @@
             if (missionArr.count != 0 && missionArr != nil) {
                 missionMuArr = [MissionModel mj_objectArrayWithKeyValuesArray:missionArr];
             }
+            for (int j=0; j<missionMuArr.count; j++) {
+                MissionModel *model = missionMuArr[j];
+                model.is_urgency =dict[@"is_urgency"];
+            }
             model.mission = missionMuArr;
+
             [orderMuArr addObject:model];
         }
     }

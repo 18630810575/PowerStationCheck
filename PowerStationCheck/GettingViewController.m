@@ -37,7 +37,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
     NSArray *selectImageArr;
     NSMutableArray *returnDataArr;
     NSMutableArray *tableDataSource;
-    NSArray *dataSource;
+    NSMutableArray *dataSource;
     UITextField *inputTextField;
     
 }
@@ -56,7 +56,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
     }
     tableDataSource = [NSMutableArray array];
     tableDataSource = [self tableviewSetData];
-    dataSource = [NSArray arrayWithArray:tableDataSource];
+    dataSource = [NSMutableArray arrayWithArray:tableDataSource];
     [self.view addSubview:self.topSearchContent];
     [self.view addSubview:self.topSelectContent];
     
@@ -351,6 +351,13 @@ static NSString *kSelectedRoundImageName = @"select-image";
     NSObject *obj = sourceArr[indexPath.row][@"model"];
     NSString *level = sourceArr[indexPath.row][@"level"];
     GettingCell *cell = [[GettingCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[NSString stringWithFormat:@"obj%d%d",section,(int)indexPath.row] AndModel:obj AndLevel:level];
+    __weak typeof(self) weakself = self;
+    cell.orderBlock = ^(NSObject *model) {
+        [weakself chosenOrder:model AndIndexPath:indexPath];
+    };
+    cell.missionBlock = ^(NSObject *model) {
+        
+    };
     if (indexPath.row == sourceArr.count-1) {
         [cell setBorder];
     }else{
@@ -360,6 +367,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
     }
     return cell;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     ProjectModel *model =returnDataArr[section];
@@ -569,6 +577,54 @@ static NSString *kSelectedRoundImageName = @"select-image";
     }
     
     return dataArr;
+}
+
+-(void)chosenOrder:(NSObject *)model AndIndexPath:(NSIndexPath *)indexPath{
+    OrderModel *order = (OrderModel *)model;
+    NSArray *sourceArr = dataSource[indexPath.section];
+    for (int i=0 ; i<sourceArr.count; i++) {
+        NSObject *obj = sourceArr[i][@"model"];
+        NSString *level = sourceArr[i][@"level"];
+        if ([level isEqualToString:@"1"]) {
+            MissionModel *mission = (MissionModel *)obj;
+            if ([mission.order_id isEqualToString:order.order_id]) {
+                if(order.is_chosen){
+                    //选择所属的所有mission
+                    mission.is_chosen = YES;
+                }else{
+                    mission.is_chosen = NO;
+                }
+            }else{
+                //不处理
+            }
+        }
+    }
+//    NSArray *tableSourceArr = tableDataSource[indexPath.section];
+//    for (int i=0; i<tableSourceArr.count; i++) {
+//        NSObject *obj = tableSourceArr[indexPath.row][@"model"];
+//        NSString *level = tableSourceArr[indexPath.row][@"level"];
+//        if ([level isEqualToString:@"1"]) {
+//            MissionModel *mission = (MissionModel *)obj;
+//            if ([mission.order_id isEqualToString:order.order_id]) {
+//                if(order.is_chosen){
+//                    //选择所属的所有mission
+//                    mission.is_chosen = YES;
+//                }else{
+//                    mission.is_chosen = NO;
+//                }
+//
+//            }else{
+//                //不处理
+//            }
+//        }
+//    }
+
+    
+    [self.projectTableView reloadData];
+}
+
+-(void)chosenMission:(NSObject *)model{
+    
 }
 
 

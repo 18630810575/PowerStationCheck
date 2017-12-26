@@ -9,6 +9,7 @@
 #import "SRObjectRuntime.h"
 
 @interface MissionModel : SRObjectRuntime
+@property (nonatomic, assign) BOOL is_chosen;
 @property (nonatomic, strong) NSString *mission_id;
 @property (nonatomic, strong) NSString *order_id;
 @property (nonatomic, strong) NSString *mission_name;
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) NSString *is_download;
 @property (nonatomic, strong) NSString *has_saved;
 @property (nonatomic, strong) NSString *is_update;
+@property (nonatomic, strong) NSString *is_urgency;
 @property (nonatomic, strong) NSString *update_time;
 @property (nonatomic, strong) NSString *need_handle;
 
