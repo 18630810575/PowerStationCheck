@@ -275,6 +275,8 @@
 			children = (
 				7D8264661FE8B02A00BB66AC /* HomeViewController.h */,
 				7D8264671FE8B02A00BB66AC /* HomeViewController.m */,
+				BFEAE69A1FF0A1A40029F31A /* TaskDetailsViewController.h */,
+				BFEAE69B1FF0A1A40029F31A /* TaskDetailsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -398,8 +400,6 @@
 			children = (
 				7D8264821FE907EE00BB66AC /* ListViewController.h */,
 				7D8264831FE907EE00BB66AC /* ListViewController.m */,
-				BFEAE69A1FF0A1A40029F31A /* TaskDetailsViewController.h */,
-				BFEAE69B1FF0A1A40029F31A /* TaskDetailsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

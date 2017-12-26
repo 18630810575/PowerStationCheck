@@ -13,6 +13,7 @@
 #import "MissionModel.h"
 #import "ProjectCell.h"
 #import "HeaderView.h"
+#import "TaskDetailsViewController.h"
 //static const int kleftSmallImageIconTag =500;
 static const float kUnselectedButtonAlpha = 0.6;
 static const float kAnimatedDuration = 0.3;
@@ -376,7 +377,8 @@ static NSString *kSelectedRoundImageName = @"select-image";
         }
         model.is_open = !model.is_open;
     }else{
-        //turn to details;;
+        TaskDetailsViewController *tasdetailVC = [[TaskDetailsViewController alloc]init];
+        [self.navigationController pushViewController:tasdetailVC animated:YES];
     }
 }
 

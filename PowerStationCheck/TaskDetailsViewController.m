@@ -402,20 +402,31 @@
     UITableViewCell *cell = [[UITableViewCell alloc]init];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
-    
+    const float viewWidth = kScreenWidth - 90 * ScreenScale;
     UIView *whiteView = [[UIView alloc]init];
     [cell addSubview:whiteView];
     whiteView.backgroundColor = [UIColor whiteColor];
     [whiteView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(0);
         make.left.equalTo(57 * ScreenScale);
-        make.width.equalTo(kScreenWidth - 90 * ScreenScale);
+        make.width.equalTo(viewWidth);
         make.height.equalTo(230 * ScreenScale);
     }];
     whiteView.layer.cornerRadius = 10 * ScreenScale;
     whiteView.layer.masksToBounds = YES;
     
     
+    UIButton *danger_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [danger_btn setBackgroundColor:[UIColor whiteColor]];
+    danger_btn.tag = 11;
+    [whiteView addSubview:danger_btn];
+    [danger_btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.and.left.equalTo(0);
+        make.width.equalTo(viewWidth / 4);
+        make.height.equalTo(230 * ScreenScale);
+    }];
+    
+   
     
     
     
