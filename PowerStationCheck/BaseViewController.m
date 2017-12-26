@@ -20,8 +20,8 @@ int const kBaseTabBarMaxHeight = 63;
 @end
 
 @implementation BaseViewController{
-
     BOOL needShowBack;
+    
 }
 
 #pragma mark -----Life Cycle-----

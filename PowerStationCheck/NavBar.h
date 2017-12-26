@@ -12,4 +12,5 @@
 
 -(void)setBackgroundImage;
 -(void)setNavTitle:(NSString *)title;
+-(void)setBackBtnWithBlock:(void(^)(void))back;
 @end

@@ -14,7 +14,9 @@ extern const int kBaseTabBarHeight;
 extern const int kBaseTabBarMaxHeight;
 
 
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController{
+    
+}
 
 - (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack;
 @property (nonatomic, strong) TabBar *tabBar;

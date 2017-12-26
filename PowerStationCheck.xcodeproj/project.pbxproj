@@ -23,6 +23,7 @@
 		7D82648D1FE90D7E00BB66AC /* NavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D82648C1FE90D7E00BB66AC /* NavBar.m */; };
 		7DDDBB891FEA15CF005935E1 /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DDDBB881FEA15CF005935E1 /* Home.xcassets */; };
 		9457765542600C8A75B8FA5F /* libPods-PowerStationCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */; };
+		BFEAE69C1FF0A1A40029F31A /* TaskDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFEAE69B1FF0A1A40029F31A /* TaskDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		7D82648C1FE90D7E00BB66AC /* NavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavBar.m; sourceTree = "<group>"; };
 		7DDDBB881FEA15CF005935E1 /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 		BDFD094F9BAB22E50AE3230F /* libPods-PowerStationCheck.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PowerStationCheck.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFEAE69A1FF0A1A40029F31A /* TaskDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskDetailsViewController.h; sourceTree = "<group>"; };
+		BFEAE69B1FF0A1A40029F31A /* TaskDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskDetailsViewController.m; sourceTree = "<group>"; };
 		F45DBB7E1896670E92E300D8 /* Pods-PowerStationCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PowerStationCheck.release.xcconfig"; path = "Pods/Target Support Files/Pods-PowerStationCheck/Pods-PowerStationCheck.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -343,6 +346,8 @@
 			children = (
 				7D8264821FE907EE00BB66AC /* ListViewController.h */,
 				7D8264831FE907EE00BB66AC /* ListViewController.m */,
+				BFEAE69A1FF0A1A40029F31A /* TaskDetailsViewController.h */,
+				BFEAE69B1FF0A1A40029F31A /* TaskDetailsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				7D8264811FE907D900BB66AC /* MineViewController.m in Sources */,
 				7D8264291FE8A6DB00BB66AC /* AppDelegate.m in Sources */,
 				7D8264681FE8B02A00BB66AC /* HomeViewController.m in Sources */,
+				BFEAE69C1FF0A1A40029F31A /* TaskDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,11 @@
 
 #import "NavBar.h"
 
+typedef void(^backBlock)(void);
 
-@implementation NavBar
+@implementation NavBar{
+    backBlock backClocker;
+}
 
 - (instancetype)init
 {
@@ -43,5 +46,32 @@
         make.height.equalTo(44);
     }];
 }
+-(void)setBackBtnWithBlock:(void(^)(void))back{
+    float statusBarHeight = kStatusBarHeight;
+    UIImageView *backImg = [[UIImageView alloc]initWithImage:image(@"white_back")];
+    [self  addSubview:backImg];
+    [backImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(statusBarHeight + 12);
+        make.left.equalTo(12);
+        make.width.equalTo(16);
+        make.height.equalTo(20);
+    }];
+    backClocker = back;
+    UIButton *hudBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    hudBtn.backgroundColor = [UIColor clearColor];
+    [hudBtn addTarget:self action:@selector(PopVC) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:hudBtn];
+    [hudBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(statusBarHeight);
+        make.left.equalTo(0);
+        make.width.equalTo(44);
+        make.height.equalTo(44);
+    }];
+}
+
+-(void)PopVC{
+    backClocker();
+}
+
 
 @end
