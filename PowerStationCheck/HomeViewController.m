@@ -377,7 +377,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
         }
         model.is_open = !model.is_open;
     }else{
-        TaskDetailsViewController *tasdetailVC = [[TaskDetailsViewController alloc]init];
+        TaskDetailsViewController *tasdetailVC = [[TaskDetailsViewController alloc]initWithTitle:@"任务详情" AndNeedBack:YES AndShowBottom:NO];
         [self.navigationController pushViewController:tasdetailVC animated:YES];
     }
 }

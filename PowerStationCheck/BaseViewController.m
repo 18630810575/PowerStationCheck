@@ -21,18 +21,20 @@ int const kBaseTabBarMaxHeight = 63;
 
 @implementation BaseViewController{
     BOOL needShowBack;
+    BOOL needShowBottom;
     
 }
 
 #pragma mark -----Life Cycle-----
 
 
-- (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack
+- (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack AndShowBottom:(BOOL)showBottom
 {
     self = [super init];
     if (self) {
         self.title = title;
         needShowBack = needBack;
+        needShowBottom = showBottom;
     }
     return self;
 }
@@ -42,13 +44,16 @@ int const kBaseTabBarMaxHeight = 63;
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addSubview:self.tabBar];
     [self.view addSubview:self.navBar];
+    [self doBaseSettings];
+    if (needShowBottom) {
+        [self doTabBarSettings];
+    }
+    [self doNavBarSettings];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self doBaseSettings];
-    [self doTabBarSettings];
-    [self doNavBarSettings];
+
 }
 
 
@@ -65,9 +70,32 @@ int const kBaseTabBarMaxHeight = 63;
     [self.navBar setBackgroundImage];
     [self.navBar setNavTitle:self.title];
     if (needShowBack) {
+        UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [leftBtn setBackgroundImage:[UIImage imageNamed:@"white_back"] forState:UIControlStateNormal];
+        [leftBtn addTarget:self action:@selector(pushBack) forControlEvents:UIControlEventTouchUpInside];
+        [self.navBar addSubview:leftBtn];
+        [leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(50*ScreenScale);
+            make.centerY.equalTo(self.navBar).offset(statusBarHeight/2);
+            make.width.equalTo(31*ScreenScale);
+            make.height.equalTo(56*ScreenScale);
+        }];
         
+        UIButton *hudBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        hudBtn.backgroundColor = [UIColor clearColor];
+        [hudBtn addTarget:self action:@selector(pushBack) forControlEvents:UIControlEventTouchUpInside];
+        [self.navBar addSubview:hudBtn];
+        [hudBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(statusBarHeight);
+            make.left.equalTo(0);
+            make.width.equalTo(44);
+            make.height.equalTo(44);
+        }];
     }
     
+}
+-(void)pushBack{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)doTabBarSettings{

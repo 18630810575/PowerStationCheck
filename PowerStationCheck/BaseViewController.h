@@ -18,7 +18,7 @@ extern const int kBaseTabBarMaxHeight;
     
 }
 
-- (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack;
+- (instancetype)initWithTitle:(NSString *)title AndNeedBack:(BOOL)needBack AndShowBottom:(BOOL)showBottom;
 @property (nonatomic, strong) TabBar *tabBar;
 @property (nonatomic, strong) NavBar *navBar;
 -(void)doNavBarSettings;

@@ -8,6 +8,8 @@
 
 #import "TaskDetailsViewController.h"
 
+
+
 @interface TaskDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong)UIImage *backImg;
@@ -24,6 +26,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *backImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:kNavBackgroundImageName]];
+    [self.view addSubview:backImageView];
+    float height = kScreenHeight-self.navBar.bounds.size.height;
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(0);
+        make.width.equalTo(kScreenWidth);
+        make.top.equalTo(self.navBar.bottom);
+        make.height.equalTo(height);
+    }];
     self.navigationController.navigationBar.translucent = NO;
     [self.view addSubview:self.taskTableView];
     float statusBarHeight = kStatusBarHeight;
@@ -33,10 +44,12 @@
         make.width.equalTo(kScreenWidth);
         make.height.equalTo(kScreenHeight - statusBarHeight - 44);
     }];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     self.view.backgroundColor = [UIColor whiteColor];
     [super viewWillAppear:animated];
+    
     
     
 }
@@ -49,66 +62,10 @@
     [self.view endEditing:YES];
 }
 
-
--(void)doNavBarSettings{
-    float statusBarHeight = kStatusBarHeight;
-    
-    
-    UIImageView *statusBarImg = [[UIImageView alloc]initWithImage:image(@"theme_background")];
-    [self.view addSubview:statusBarImg];
-    [statusBarImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(0);
-        make.left.equalTo(0);
-        make.width.equalTo(kScreenWidth);
-        make.height.equalTo(statusBarHeight);
-    }];
-    statusBarImg.alpha = 0.8;
-    
-    [self.navBar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(0);
-        make.top.equalTo(statusBarHeight);
-        make.width.equalTo(kScreenWidth);
-        make.height.equalTo(kScreenHeight - statusBarHeight);
-    }];
-    [self.navBar setBackgroundImage];
-    
-    
-    UILabel *titleLabel = [[UILabel alloc]init];
-    titleLabel.textColor = [UIColor whiteColor];
-    titleLabel.font = [UIFont systemFontOfSize:18 weight:bold];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = self.title;
-    [self.navBar addSubview:titleLabel];
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.navBar);
-        make.top.equalTo(0);
-        make.height.equalTo(44);
-    }];
-    
-    UIImageView *backImg = [[UIImageView alloc]initWithImage:image(@"white_back")];
-    [self.navBar  addSubview:backImg];
-    [backImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(12);
-        make.left.equalTo(12);
-        make.width.equalTo(16);
-        make.height.equalTo(20);
-    }];
-    UIButton *hudBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    hudBtn.backgroundColor = [UIColor clearColor];
-    [hudBtn addTarget:self action:@selector(PopVC) forControlEvents:UIControlEventTouchUpInside];
-    [self.navBar addSubview:hudBtn];
-    [hudBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(0);
-        make.left.equalTo(0);
-        make.width.equalTo(44);
-        make.height.equalTo(44);
-    }];
-}
 -(void)PopVC{
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)doTabBarSettings{
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
