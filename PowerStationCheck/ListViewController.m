@@ -7,18 +7,6 @@
 //
 
 #import "ListViewController.h"
-<<<<<<< HEAD
-#import "TaskDetailsViewController.h"
-@interface ListViewController ()<UITableViewDelegate,UITableViewDataSource>
-
-@property (nonatomic,strong)UITableView *tableview;
-
-
-
-
-
-
-=======
 #import "DataPile.h"
 #import "ProjectModel.h"
 #import "OrderModel.h"
@@ -43,7 +31,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
 @property (nonatomic, strong) UIView *normalMissionSelct;
 @property (nonatomic, strong) UIImageView *selectedRoundImage;
 @property (nonatomic, strong) UITableView *projectTableView;
->>>>>>> 5cdf0d2de5c79a1815a222f14d28b0680c2a03e0
+
 
 @end
 
@@ -59,19 +47,10 @@ static NSString *kSelectedRoundImageName = @"select-image";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-<<<<<<< HEAD
     
-    [self.view addSubview:self.tableview];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(0);
-        make.top.equalTo(64);
-        make.width.equalTo(kScreenWidth);
-        make.height.equalTo(kScreenHeight - 64 - 73);
-    }];
-=======
     selectTitleArr = @[@"人员",@"分配情况",@"工单类型",@"日期"];
     returnDataArr = [NSMutableArray array];
     NSArray *pileArr =[DataPile getDataPile];
@@ -84,12 +63,6 @@ static NSString *kSelectedRoundImageName = @"select-image";
     tableDataSource = [self tableviewSetData];
     dataSource = [NSArray arrayWithArray:tableDataSource];
     [self.view addSubview:self.topSelectContent];
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
     [self doTopSelectViewSettings];
     self.view.backgroundColor = kFooterColor;
     [self doProjectScrollViewSettings];
@@ -113,55 +86,11 @@ static NSString *kSelectedRoundImageName = @"select-image";
     [topSelectBackImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.top.and.width.and.height.equalTo(self.topSelectContent);
     }];
-    
->>>>>>> 5cdf0d2de5c79a1815a222f14d28b0680c2a03e0
-}
-
-#pragma mark - tableview -
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc]init];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = [NSString stringWithFormat:@"任务%ld",(long)indexPath.row];
-    return cell;
-}
-
-<<<<<<< HEAD
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    TaskDetailsViewController *taskdeVC = [[TaskDetailsViewController alloc]initWithTitle:[NSString stringWithFormat:@"任务 %ld",(long)indexPath.row] AndNeedBack:YES];
-    [self.navigationController pushViewController:taskdeVC animated:YES];
 }
 
 
 
 
-
-#pragma mark - getters -
--(UITableView *)tableview{
-    if (!_tableview) {
-        _tableview = [[UITableView alloc]init];
-        _tableview.backgroundColor = [UIColor clearColor];
-        //_tableview.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableview.delegate =self;
-        _tableview.dataSource =self;
-        _tableview.bounces = NO;
-        if (@available(iOS 11.0, *)) {
-            _tableview.contentInsetAdjustmentBehavior=UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            // Fallback on earlier versions
-            self.automaticallyAdjustsScrollViewInsets = FALSE;
-        }
-        _tableview.showsVerticalScrollIndicator = YES;
-    }
-    return _tableview;
-}
-
-=======
 -(void)tapToChooseMissionType:(UIButton *)sender{
     UIView *currentView = sender.superview;
     if (currentView == self.allMissionSelect) {
@@ -483,7 +412,7 @@ static NSString *kSelectedRoundImageName = @"select-image";
     
     return dataArr;
 }
->>>>>>> 5cdf0d2de5c79a1815a222f14d28b0680c2a03e0
+
 
 @end
 
